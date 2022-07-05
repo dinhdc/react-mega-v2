@@ -1,21 +1,26 @@
 import React from 'react'
+import { useGlobalContext } from '../Context/Context'
 
 interface Props {
 
 }
 
 const SetupForm: React.FC<Props> = () => {
+    const context = useGlobalContext()
+    if (context) {
+        var {quiz, handleChange, handleSubmit, error} = context
+    }
     return <main>
         <section className="quiz quiz-small">
             <form className="setup-form">
                 <h2>setup quiz</h2>
                 <div className="form-control">
                     <label htmlFor="amount">number of questions</label>
-                    <input type="number" name='amount' id='amount' className='form-input' />
+                    <input type="number" name='amount' value={quiz.amount} onChange={handleChange} id='amount' className='form-input' />
                 </div>
                 <div className="form-control">
                     <label htmlFor="category">category</label>
-                    <select name='category' id='category' className='form-input'>
+                    <select name='category' id='category' className='form-input' value={quiz.category} onChange={handleChange}>
                         <option value="sports">sports</option>
                         <option value="history">history</option>
                         <option value="politics">politics</option>
@@ -23,14 +28,14 @@ const SetupForm: React.FC<Props> = () => {
                 </div>
                 <div className="form-control">
                     <label htmlFor="difficulty">difficulty</label>
-                    <select name='difficulty' id='difficulty' className='form-input'>
+                    <select value={quiz.difficulty} onChange={handleChange} name='difficulty' id='difficulty' className='form-input'>
                         <option value="easy">easy</option>
                         <option value="medium">medium</option>
                         <option value="hard">difficulty</option>
                     </select>
                 </div>
-                <p className="error">can't generates questions, please try again!</p>
-                <button type="submit" className='submit-btn'>start</button>
+                {error && <p className="error">can't generates questions, please try again!</p>}
+                <button type="submit" className='submit-btn' onClick={handleSubmit}>start</button>
             </form>
         </section>
     </main>
