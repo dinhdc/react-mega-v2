@@ -1,0 +1,43 @@
+#quote-box {
+  background-color: #fff;
+  text-align: center;
+  width: 520px;
+  padding: 45px 50px;
+  border-radius: 3px;
+  box-shadow: -5px -1px 48px -14px rgba(0, 0, 0, 0.75);
+  --webkit-box-shadow: -5px -1px 48px -14px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -5px -1px 48px -14px rgba(0, 0, 0, 0.75);
+}
+
+.buttons {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-author{
+    font-weight: 300;
+    margin-top: 1rem;
+    font-size: 1rem;
+    text-align: end;
+}
+
+.quote-text{
+    font-size: 1.9rem;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 17px;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    height: 35px;
+    text-align: center;
+}
